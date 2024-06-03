@@ -1,0 +1,32 @@
+#root {
+  padding: 20px;
+  text-align: center;
+}
+
+html, #root{
+    background-color: #242424;
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.h1-principal{
+    margin-bottom: 50px;
+}
+
+.img-error{
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.card-error{
+    display: flex;
+    place-items: center;
+    margin: 0;
+}
+
+.container-error{
+    margin-top: 300px;
+
+}
+.btn-custom{
+    margin-top: 20px;
+}
