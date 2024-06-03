@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
+import PropTypes from "prop-types"
 
 export const CharacterInfoExtended = ({ characters = [] }) => {
     const { characterId } = useParams()
@@ -35,4 +36,8 @@ export const CharacterInfoExtended = ({ characters = [] }) => {
             </div>
         </div>
     )
+}
+
+CharacterInfoExtended.propTypes = {
+    characters: PropTypes.array,
 }

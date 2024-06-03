@@ -1,19 +1,31 @@
 import { useEffect, useState } from "react"
-import axios from "axios"
 
 export const useCharacter = () => {
     const [data, setData] = useState([])
+    const [page, setPage] = useState(1)
+    const [total, setTotal] = useState(0)
+
+    const url = `https://rickandmortyapi.com/api/character?page=${page}`
+    
+    useEffect(() =>{
+        getCharacters(url);       
+    }, [url])
 
     useEffect(() =>{
-        getCharacters();
-        
+        fetch("https://rickandmortyapi.com/api/character")
+            .then((response) => response.json())
+            .then((data) => setTotal(data.info.pages))
+            .catch((error) => console.log(error))
     }, [])
 
     
-    const getCharacters = async() => {
-        const resp = await axios.get("https://rickandmortyapi.com/api/character")
-        setData(resp.data)
+    const getCharacters = (url) => {
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => setData(data.results))
+            .catch((error) => console.log(error))
     }
 
-  return data;
+    console.log(total)
+  return [data, page, total, setPage];
 }
