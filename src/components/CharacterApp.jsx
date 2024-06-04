@@ -17,7 +17,7 @@ export const CharacterApp = ({ characters, page, total, setPage }) => {
     return (
         <>
 
-            {characters != undefined ? 
+            {characters.length != 0 ? 
             <>
              <h1 className='h1-principal'> Personajes de Rick and Morty</h1> 
              <h2> Página: {page}</h2>
